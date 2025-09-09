@@ -1,19 +1,16 @@
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 interface SearchProps {
-  searchedValue: string;
-  onclick(): void;
+  onSearch(value: string): void;
 }
 
-const Search = ({ onclick }: SearchProps) => {
+const Search = ({ onSearch }: SearchProps) => {
+  const [searchedValue, setSearchedvalue] = useState("");
   return (
-    <div>
-      <input type="text" name="search" placeholder="Search" />
-      <FaSearch
-        onClick={() => {
-          onclick();
-        }}
-      />
+    <div id="search-container">
+      <input id="search" type="text" name="search" placeholder="Search" />
+      <FaSearch id="search-icon" onClick={() => onSearch(searchedValue)} />
     </div>
   );
 };

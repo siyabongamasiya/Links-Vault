@@ -1,15 +1,15 @@
 import type React from "react";
 
-interface ButtonProps{
+interface ButtonProps {
   name: string;
-};
+}
 
 const Button = ({ name }: ButtonProps) => {
   return (
     <>
-      <button>{name}</button>
+      <button id={`${name}-button`}>{name}</button>
     </>
   );
 };
 
-export default Button 
+export default Button;

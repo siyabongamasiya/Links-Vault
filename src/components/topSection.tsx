@@ -1,21 +1,21 @@
 import { useState } from "react";
 import Search from "./search";
-import logo from "../assets/images/logo.png"
+import logo from "../assets/images/logo.png";
 
 const TopSection = () => {
-  const [searchedValue] = useState("");
-
   return (
-    <div>
-      <img src={logo} alt="logo" />
-      <Search
-        searchedValue={searchedValue}
-        onclick={() => {
-          //search local storage
-        }}
-      />
+    <div id="topSection">
+      <div id="topSection-logo-search">
+        <img id="logo" src={logo} alt="logo" />
+        <Search
+          onSearch={(value) => {
+            //search link
+          }}
+        />
+      </div>
+      <div id="divider"></div>
     </div>
   );
 };
 
-export default TopSection
+export default TopSection;

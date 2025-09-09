@@ -13,9 +13,9 @@ const Dialog = ({ style }: DialogProps) => {
   const [description, setDescription] = useState("");
 
   return (
-    <div style={style}>
-      <p>Create link</p>
-      <div>
+    <div id="dialog" style={style}>
+      <h1 id="dialog-header">Create link</h1>
+      <div id="link-form">
         <Input name="title" placeholder="Title" type="text" value={title} />
         <Input name="url" placeholder="URL" type="text" value={url} />
         <Input
@@ -25,7 +25,7 @@ const Dialog = ({ style }: DialogProps) => {
           value={description}
         />
       </div>
-      <div>
+      <div id="tags">
         <Tag text="Coding" />
         <Tag text="Football" />
         <Tag text="Movies" />

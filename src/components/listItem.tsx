@@ -8,13 +8,13 @@ interface ListItemProps {
 
 const ListItem = ({ title, url, description }: ListItemProps) => {
   return (
-    <div>
-      <div>
-        <p>{title}</p>
-        <p>{url}</p>
-        <p>{description}</p>
+    <div id="list-item">
+      <div id="link-details">
+        <p id="item-title">{title}</p>
+        <p id="item-url">{url}</p>
+        <p id="item-description">{description}</p>
       </div>
-      <div>
+      <div id="item-buttons">
         <ItemButton
           type="update"
           onEdit={() => {
@@ -32,4 +32,4 @@ const ListItem = ({ title, url, description }: ListItemProps) => {
   );
 };
 
-export default ListItem
+export default ListItem;

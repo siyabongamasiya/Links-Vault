@@ -4,14 +4,230 @@
   /*colors*/
   --background-text-icon-color: #ffffff;
   --button-color: #388697;
-  --input-back: #93827f; /*20%*/
+  --input-back: rgba(147, 130, 127, 0.3);
+  --input-back: rgba(147, 130, 127, 0.1);
   --footer-color: #119da4;
-  --background-modal: #000000; /*10%*/
+  --modal: rgba(0, 0, 0, 0.1);
+  --background: #000000;
   --item-tag-color: #93827f;
+  --blur-color: rgba(0, 0, 0, 0.3);
 
   /*typography*/
-  --title-font:'Epunda Slab', serif;
-  --body-font:'Epunda Sans', sans-serif;
+  --title-font: "Epunda Slab", serif;
+  --body-font: "Epunda Sans", sans-serif;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
 
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+#topSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10vh;
+}
+
+#topSection-logo-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 95%;
+}
+
+#divider {
+  width: 100%;
+  height: 5%;
+  background-color: var(--background);
+}
+
+#logo {
+  height: 80%;
+}
+
+#search-container {
+  width: 50%;
+  position: relative;
+  background-color: var(--input-back);
+  border-radius: 8px;
+  margin: 0 10px 0 10px;
+}
+
+#search {
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--input-back);
+}
+
+#search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--background);
+  font-size: 18px;
+}
+
+#midSection {
+  display: flex;
+  height: 80%;
+  padding: 10px;
+}
+
+#leftMidSection {
+  width: 40%;
+  height: 100%;
+  padding: 0 7%;
+  box-shadow: 5px 4px 4px 0px var(--blur-color);
+}
+#rightMidSection {
+  width: 60%;
+  height: 100%;
+  padding-left: 20px;
+  box-shadow: 5px 4px 4px 0px var(--blur-color);
+}
+
+#dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#link-form {
+  display: flex;
+  width: 100%;
+  height: 60%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#tags {
+  display: flex;
+  width: 100%;
+  height: 15%;
+  gap: 8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.input,
+.input-container {
+  width: 100%;
+  background-color: var(--input-back);
+  font-size: 1.5rem;
+}
+
+#dialog-header {
+  height: 10%;
+}
+
+#Add-button {
+  height: 5%;
+  width: 75%;
+  color: var(--background-text-icon-color);
+  border: var(--button-color);
+  background-color: var(--button-color);
+  border-radius: 8px;
+}
+
+#title-input,
+#url-input,
+#Description-input {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--input-back);
+}
+
+#title-container,
+#url-container {
+  height: 20%;
+  border-radius: 8px;
+}
+#Description-container {
+  height: 55%;
+  border-radius: 8px;
+}
+
+.tag {
+  background-color: var(--item-tag-color);
+  padding: 2%;
+  border-radius: 8px;
+  color: var(--background-text-icon-color);
+}
+
+input::placeholder {
+  padding: 1%;
+}
+
+textarea::placeholder {
+  padding: 1%;
+}
+
+#list-item {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  height: 10vh;
+  justify-content: space-between;
+  background-color: var(--item-tag-color);
+  color: var(--background-text-icon-color);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#link-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#item-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.item-image {
+  width: 20px;
+}
+
+#item-button {
+  background-color: var(--button-color);
+  width: 2vw;
+  height: 0.5vw;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+#footer {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--footer-color);
+  color: var(--background-text-icon-color);
+}

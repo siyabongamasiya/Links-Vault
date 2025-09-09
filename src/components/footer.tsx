@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <div>
+        <div id="footer">
             <p>@2025 Links Vault.All rights Reserved</p>
         </div>
     )

@@ -9,13 +9,24 @@ interface InputProps {
 
 const Input = ({ placeholder, name, type, value }: InputProps) => {
   return (
-    <>
+    <div className="input-container" id={`${name}-container`}>
       {type != "textarea" ? (
-        <input type={type} name={name} placeholder={placeholder} />
+        <input
+          id={`${name}-input`}
+          className="input"
+          type={type}
+          name={name}
+          placeholder={placeholder}
+        />
       ) : (
-        <textarea value={value} />
+        <textarea
+          id={`${name}-input`}
+          className="input"
+          placeholder={placeholder}
+          value={value}
+        />
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,24 +1,31 @@
-import { FaEdit, FaTrash } from "react-icons/fa";
+import edit from "../assets/images/edit.png";
+import remove from "../assets/images/delete.png";
 
 interface ItemButton {
   type: string;
   onEdit?: () => void;
-  onDelete?: () => void; 
+  onDelete?: () => void;
 }
 
 const ItemButton = ({ type, onEdit, onDelete }: ItemButton) => {
   return (
-    <div>
+    <div id="item-button">
       {type === "update" ? (
-        <FaEdit
+        <img
+          className="item-image"
+          src={edit}
+          alt="edit"
           onClick={() => {
             onEdit!();
           }}
         />
       ) : (
-        <FaTrash
+        <img
+          className="item-image"
+          src={remove}
+          alt="edit"
           onClick={() => {
-            onDelete!();
+            onEdit!();
           }}
         />
       )}
@@ -26,4 +33,4 @@ const ItemButton = ({ type, onEdit, onDelete }: ItemButton) => {
   );
 };
 
-export default ItemButton
+export default ItemButton;

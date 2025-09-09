@@ -1,13 +1,13 @@
-import LeftMidSection from "./leftMidSection"
-import RightMidSection from "./rightMidSection"
+import LeftMidSection from "./leftMidSection";
+import RightMidSection from "./rightMidSection";
 
 const MidSection = () => {
-    return(
-        <div>
-         <LeftMidSection/>
-         <RightMidSection/> 
-        </div>
-    )
-}
+  return (
+    <div id="midSection">
+      <LeftMidSection />
+      <RightMidSection />
+    </div>
+  );
+};
 
-export default MidSection
+export default MidSection;

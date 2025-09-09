@@ -2,7 +2,7 @@ import Dialog from "./dialog"
 
 const LeftMidSection = () => {
     return(
-        <div>
+        <div id="leftMidSection">
             <Dialog style={{}}/>
         </div>
     )
