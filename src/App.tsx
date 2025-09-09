@@ -11,6 +11,7 @@ function App() {
       <TopSection/>
       <MidSection/>
       <Footer/>
+      
     </>
   )
 }

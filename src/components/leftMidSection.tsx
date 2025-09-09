@@ -1,11 +1,19 @@
-import Dialog from "./dialog"
+import Dialog from "./dialog";
 
 const LeftMidSection = () => {
-    return(
-        <div id="leftMidSection">
-            <Dialog style={{}}/>
-        </div>
-    )
-}
+  return (
+    <div className="desktop" id="leftMidSection">
+      <Dialog
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
+          height: "100%",
+        }   }
+      />
+    </div>
+  );
+};
 
-export default LeftMidSection
+export default LeftMidSection;
