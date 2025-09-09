@@ -1,3 +1,17 @@
-:root{
-  
+@import url("https://fonts.googleapis.com/css2?family=Epunda+Sans:ital,wght@0,300..900;1,300..900&family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  /*colors*/
+  --background-text-icon-color: #ffffff;
+  --button-color: #388697;
+  --input-back: #93827f; /*20%*/
+  --footer-color: #119da4;
+  --background-modal: #000000; /*10%*/
+  --item-tag-color: #93827f;
+
+  /*typography*/
+  --title-font:'Epunda Slab', serif;
+  --body-font:'Epunda Sans', sans-serif;
 }
+
+
