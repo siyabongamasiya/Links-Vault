@@ -4,27 +4,28 @@ import type Link from "../models/link";
 
 const RightMidSection = () => {
   const [items, setItems] = useState<Link[]>([
-     {
+    {
+      title: "barca",
+      url: "www.youtube.com/27632387s2",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga optio sunt laboriosam, et consequuntur tempora incidunt mollitia perferendis accusamus iste odio labore dignissimos culpa, dolor deleniti modi cumque placeat in",
+    },
+    {
       title: "barca",
       url: "www.youtube.com/27632387s2",
       description: "barca vs madrid highlights",
     },
-     {
+    {
       title: "barca",
       url: "www.youtube.com/27632387s2",
       description: "barca vs madrid highlights",
     },
-     {
+    {
       title: "barca",
       url: "www.youtube.com/27632387s2",
       description: "barca vs madrid highlights",
     },
-     {
-      title: "barca",
-      url: "www.youtube.com/27632387s2",
-      description: "barca vs madrid highlights",
-    },
-     {
+    {
       title: "barca",
       url: "www.youtube.com/27632387s2",
       description: "barca vs madrid highlights",
