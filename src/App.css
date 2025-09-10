@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Epunda+Sans:ital,wght@0,300..900;1,300..900&family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap");
 
+.mobile {
+  display: none !important;
+}
+
 :root {
   /*colors*/
   --background-text-icon-color: #ffffff;
@@ -105,6 +109,7 @@ h1 {
   height: 100%;
   padding-left: 20px;
   box-shadow: 5px 4px 4px 0px var(--blur-color);
+  overflow:scroll;
 }
 
 #link-form {
@@ -184,28 +189,27 @@ textarea::placeholder {
   display: flex;
   flex-direction: row;
   margin: 10px;
-  height: 10vh;
   justify-content: space-between;
   background-color: var(--item-tag-color);
   color: var(--background-text-icon-color);
-  padding: 10px;
+  padding: 5px;
   border-radius: 8px;
   font-family: "Epunda Sans", sans-serif;
 }
 
 #item-title {
-  font-size: large;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 #item-url {
-  font-size: medium;
+  font-size: 1rem;
   font-weight: 400;
 }
 
 #item-description {
   width: 20vw;
-  font-size: small;
+  font-size: 1rem;
   font-weight: 100;
   white-space: nowrap;
   overflow: hidden;
@@ -216,6 +220,7 @@ textarea::placeholder {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
   padding: 10px;
 }
 
@@ -227,7 +232,7 @@ textarea::placeholder {
 }
 
 .item-image {
-  width: 20px;
+  width: 1.5vw;
 }
 
 #item-button {
@@ -250,9 +255,46 @@ textarea::placeholder {
   background-color: var(--footer-color);
   color: var(--background-text-icon-color);
   font-family: "Epunda Slab", serif;
+  z-index: 9999;
+}
+
+#floating-button {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--background-text-icon-color);
+  background-color: var(--button-color);
+  border-radius: 50%;
+  position: fixed;
+  bottom: 22vw;
+  right: 20px;
+  cursor: pointer;
+  border: 1px solid var(--button-color);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+#modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.mobile {
+  display: none;
 }
 
 @media screen and (max-width: 1024px) {
+  #root {
+    position: relative;
+  }
   .desktop {
     display: none;
   }
@@ -281,10 +323,52 @@ textarea::placeholder {
   }
 
   .item-image {
-    width: 4vw;
+    width: 3vw;
   }
 
   #search-container {
     margin: 0 0px 0 10px;
+  }
+
+  #footer {
+    position: fixed;
+    bottom: 1px;
+    width: 100%;
+    height: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--footer-color);
+    color: var(--background-text-icon-color);
+    font-family: "Epunda Slab", serif;
+  }
+
+  #tags {
+    gap: 2rem;
+  }
+
+  .mobile {
+    display: block !important;
+  }
+}
+
+@media screen and (min-width: 431px) and (max-width: 1024px) {
+  .desktop {
+    display: none;
+  }
+
+  #root {
+    position: relative;
+  }
+
+  .mobile {
+    display: block;
+  }
+  .item-image {
+    width: 1.8vw;
+  }
+
+  .mobile {
+    display: block;
   }
 }

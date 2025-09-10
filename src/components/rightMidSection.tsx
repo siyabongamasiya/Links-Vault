@@ -30,6 +30,41 @@ const RightMidSection = () => {
       url: "www.youtube.com/27632387s2",
       description: "barca vs madrid highlights",
     },
+    {
+      title: "barca",
+      url: "www.youtube.com/27632387s2",
+      description: "barca vs madrid highlights",
+    },
+    {
+      title: "barca",
+      url: "www.youtube.com/27632387s2",
+      description: "barca vs madrid highlights",
+    },
+    {
+      title: "barca",
+      url: "www.youtube.com/27632387s2",
+      description: "barca vs madrid highlights",
+    },
+    {
+      title: "barca",
+      url: "www.youtube.com/27632387s2",
+      description: "barca vs madrid highlights",
+    },
+    {
+      title: "barca",
+      url: "www.youtube.com/27632387s2",
+      description: "barca vs madrid highlights",
+    },
+    {
+      title: "barca",
+      url: "www.youtube.com/27632387s2",
+      description: "barca vs madrid highlights",
+    },
+    {
+      title: "barca",
+      url: "www.youtube.com/27632387s2",
+      description: "barca vs madrid highlights",
+    },
   ]);
 
   return (

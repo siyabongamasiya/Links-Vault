@@ -1,19 +1,21 @@
-import { useState } from 'react'
-import './App.css'
-import TopSection from './components/topSection'
-import MidSection from './components/midSection'
-import Footer from './components/footer'
+import { useState } from "react";
+import "./App.css";
+import TopSection from "./components/topSection";
+import MidSection from "./components/midSection";
+import Footer from "./components/footer";
+import FloatingButton from "./components/floatingbutton";
+import Modal from "./components/modal";
 
 function App() {
-
   return (
     <>
-      <TopSection/>
-      <MidSection/>
-      <Footer/>
-      
+      <Modal isOpen={false} onClose={() => {}} />
+      <TopSection />
+      <MidSection />
+      <Footer />
+      <FloatingButton />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
