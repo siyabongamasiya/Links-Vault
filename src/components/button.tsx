@@ -2,12 +2,20 @@ import type React from "react";
 
 interface ButtonProps {
   name: string;
+  onclick(): void;
 }
 
-const Button = ({ name }: ButtonProps) => {
+const Button = ({ name, onclick }: ButtonProps) => {
   return (
     <>
-      <button id={`${name}-button`}>{name}</button>
+      <button
+        id={`${name}-button`}
+        onClick={() => {
+          onclick();
+        }}
+      >
+        {name}
+      </button>
     </>
   );
 };

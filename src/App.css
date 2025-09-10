@@ -142,7 +142,8 @@ h1 {
   height: 10%;
 }
 
-#Add-button {
+#Add-button,
+#Edit-button {
   height: 5%;
   width: 75%;
   color: var(--background-text-icon-color);
@@ -232,7 +233,7 @@ textarea::placeholder {
 }
 
 .item-image {
-  width: 1.5vw;
+  width: 1vw;
 }
 
 #item-button {

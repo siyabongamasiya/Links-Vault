@@ -1,12 +1,24 @@
+import DataAccessObject from "../Utils/dao";
 import ItemButton from "./itemButton";
+const dao = new DataAccessObject();
 
 interface ListItemProps {
+  id: string;
   title: string;
   url: string;
   description: string;
+  onDelete(url: string): void;
+  onEdit(id: string, title: string, url: string, description: string): void;
 }
 
-const ListItem = ({ title, url, description }: ListItemProps) => {
+const ListItem = ({
+  id,
+  title,
+  url,
+  description,
+  onDelete,
+  onEdit,
+}: ListItemProps) => {
   return (
     <div id="list-item">
       <div id="link-details">
@@ -18,13 +30,16 @@ const ListItem = ({ title, url, description }: ListItemProps) => {
         <ItemButton
           type="update"
           onEdit={() => {
-            //update
+            if (onEdit) {
+              return onEdit(id, title, url, description);
+            }
+            return false;
           }}
         />
         <ItemButton
           type="delete"
           onDelete={() => {
-            //delete
+            onDelete(id);
           }}
         />
       </div>

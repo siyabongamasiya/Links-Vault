@@ -25,7 +25,7 @@ const ItemButton = ({ type, onEdit, onDelete }: ItemButton) => {
           src={remove}
           alt="edit"
           onClick={() => {
-            onEdit!();
+            onDelete!()
           }}
         />
       )}
