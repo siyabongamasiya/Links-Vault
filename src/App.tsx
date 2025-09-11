@@ -3,39 +3,40 @@ import "./App.css";
 import TopSection from "./components/topSection";
 import MidSection from "./components/midSection";
 import Footer from "./components/footer";
-import FloatingButton from "./components/floatingbutton";
-import Modal from "./components/modal";
 import Link from "./models/link";
 import DataAccessObject from "./Utils/dao";
+import stringMatcher from "./Utils/stringMatcher";
 
 const dao = new DataAccessObject();
 
 function App() {
   const [links, setLinks] = useState<Link[]>([]);
-  const [filter, setfilter] = useState("");
+  const [searchedValue, setSearchedvalue] = useState("");
 
-  const onUpdateLinks = () => {
+  const onUpdateLinks = (filter: string) => {
     const links: Link[] = dao.getLinks()!;
-    setLinks(links.filter((Link) => Link.id.includes(filter)));
+    setLinks(links.filter((link) => stringMatcher(link.id, filter))); 
+  };
+  const onUpdateLinksState = () => {
+    const links: Link[] = dao.getLinks()!;
+    setLinks(links.filter((link) => stringMatcher(link.id, searchedValue)));
   };
 
   useEffect(() => {
     const links: Link[] = dao.getLinks()!;
-    setLinks(links.filter((Link) => Link.id.includes(filter)));
+    setLinks(links.filter((link) => stringMatcher(link.id, searchedValue)));
   }, []);
+
   return (
     <>
-      <Modal isOpen={false} onClose={() => {}} />
       <TopSection
         onSearch={(searchValue) => {
-          setfilter(searchValue)
-          onUpdateLinks()
-          console.log(searchValue,"search value")
+          onUpdateLinks(searchValue);
+          setSearchedvalue(searchValue);
         }}
       />
-      <MidSection links={links} onUpdateLinks={onUpdateLinks} />
+      <MidSection links={links} onUpdateLinks={onUpdateLinksState} />
       <Footer />
-      <FloatingButton />
     </>
   );
 }

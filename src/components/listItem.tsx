@@ -23,7 +23,7 @@ const ListItem = ({
     <div id="list-item">
       <div id="link-details">
         <p id="item-title">{title}</p>
-        <p id="item-url">{url}</p>
+        <a id="item-url" href={url}>{url}</a>
         <p id="item-description">{description}</p>
       </div>
       <div id="item-buttons">

@@ -5,14 +5,23 @@ interface LeftMidSectionProps {
   title: string;
   url: string;
   description: string;
-  dialogMode : string;
+  dialogMode: string;
   onChangeTitle(newTitle: string): void;
   onChangeUrl(newUrl: string): void;
   onChangeDescription(newDescription: string): void;
   onAdd(): void;
 }
 
-const LeftMidSection = ({title,url,dialogMode,description,onChangeTitle,onChangeUrl,onChangeDescription,onAdd} :LeftMidSectionProps) => {
+const LeftMidSection = ({
+  title,
+  url,
+  dialogMode,
+  description,
+  onChangeTitle,
+  onChangeUrl,
+  onChangeDescription,
+  onAdd,
+}: LeftMidSectionProps) => {
   return (
     <div className="desktop" id="leftMidSection">
       <Dialog

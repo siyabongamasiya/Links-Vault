@@ -4,6 +4,8 @@ import LeftMidSection from "./leftMidSection";
 import RightMidSection from "./rightMidSection";
 import DataAccessObject from "../Utils/dao";
 import generateUniqueId from "../Utils/idgenerator";
+import Modal from "./modal";
+import FloatingButton from "./floatingbutton";
 const dao = new DataAccessObject();
 
 interface MidSectionProps {
@@ -16,6 +18,8 @@ const MidSection = ({ links, onUpdateLinks }: MidSectionProps) => {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [description, setDescription] = useState("");
+
+  const [isDialogueOpen, setDialogueState] = useState(false);
   const [dialogMode, setDialogueMode] = useState("add");
 
   const onChangeTitle = (newTitle: string) => {
@@ -26,6 +30,14 @@ const MidSection = ({ links, onUpdateLinks }: MidSectionProps) => {
   };
   const onChangeDescription = (newDescription: string) => {
     setDescription(newDescription);
+  };
+
+  const toggleDialogueMode = () => {
+    dialogMode === "add" ? setDialogueMode("edit") : setDialogueMode("add");
+  };
+
+  const ToggleDialogue = () => {
+    setDialogueState(!isDialogueOpen);
   };
 
   const onAdd = () => {
@@ -56,11 +68,25 @@ const MidSection = ({ links, onUpdateLinks }: MidSectionProps) => {
     setTitle(title);
     setUrl(url);
     setDescription(description);
-    setDialogueMode("edit");
+    toggleDialogueMode();
   };
 
   return (
     <div id="midSection">
+      <Modal
+        title={title}
+        url={url}
+        description={description}
+        onChangeTitle={onChangeTitle}
+        onChangeUrl={onChangeUrl}
+        onChangeDescription={onChangeDescription}
+        onAdd={onAdd}
+        dialogMode={dialogMode}
+        isOpen={isDialogueOpen}
+        onClose={() => {
+          ToggleDialogue();
+        }}
+      />
       <LeftMidSection
         title={title}
         url={url}
@@ -76,6 +102,7 @@ const MidSection = ({ links, onUpdateLinks }: MidSectionProps) => {
         onEdit={onEdit}
         onUpdate={onUpdateLinks}
       />
+      <FloatingButton onToggleDialogue={ToggleDialogue} />
     </div>
   );
 };

@@ -3,10 +3,10 @@ import { FaSearch } from "react-icons/fa";
 
 interface SearchProps {
   onSearch(value: string): void;
+  currentValue : string
 }
 
-const Search = ({ onSearch }: SearchProps) => {
-  const [searchedValue, setSearchedvalue] = useState("");
+const Search = ({ onSearch ,currentValue}: SearchProps) => {
   return (
     <div id="search-container">
       <input
@@ -14,10 +14,10 @@ const Search = ({ onSearch }: SearchProps) => {
         type="text"
         name="search"
         placeholder="Search"
-        value={searchedValue}
+        value={currentValue}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          setSearchedvalue(e.target.value);
-          onSearch(searchedValue);
+          const newValue = e.target.value;
+          onSearch(newValue); 
         }}
       />
       <FaSearch

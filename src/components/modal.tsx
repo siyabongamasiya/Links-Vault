@@ -1,11 +1,30 @@
 import Dialog from "./dialog";
 
 interface ModalProps {
+  title: string;
+  url: string;
+  description: string;
+  dialogMode: string;
+  onChangeTitle(newTitle: string): void;
+  onChangeUrl(newUrl: string): void;
+  onChangeDescription(newDescription: string): void;
+  onAdd(): void;
   isOpen: boolean;
   onClose: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+const Modal = ({
+  title,
+  url,
+  dialogMode,
+  description,
+  onChangeTitle,
+  onChangeUrl,
+  onChangeDescription,
+  onAdd,
+  isOpen,
+  onClose,
+}: ModalProps) => {
   if (!isOpen) return null;
 
   return (
@@ -29,10 +48,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       <div
         style={{
           position: "fixed",
-          width:"50%",
+          width: "50%",
           top: "50%",
           left: "50%",
-          height:"70%",
+          height: "70%",
           transform: "translate(-50%, -50%)",
           background: "#fff",
           padding: "2rem",
@@ -42,13 +61,24 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         }}
       >
         <Dialog
+          title={title}
+          url={url}
+          description={description}
+          onChangeTitle={onChangeTitle}
+          onChangeUrl={onChangeUrl}
+          onChangeDescription={onChangeDescription}
+          onAdd={onAdd}
+          onCloseModal={() => {
+            onClose();
+          }}
+          dialogMode={dialogMode}
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
             height: "100%",
-            padding:"10px"
+            padding: "10px",
           }}
         />
       </div>

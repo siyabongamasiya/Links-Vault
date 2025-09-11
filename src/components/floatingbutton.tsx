@@ -1,8 +1,14 @@
 import { FaPlus } from "react-icons/fa";
 
-const FloatingButton = () => {
+interface FloatingButtonProps {
+  onToggleDialogue(): void;
+}
+
+
+
+const FloatingButton = ({ onToggleDialogue }: FloatingButtonProps) => {
   return (
-    <button id="floating-button" className="mobile">
+    <button id="floating-button" className="mobile" onClick={onToggleDialogue}>
       +
     </button>
   );

@@ -9,10 +9,11 @@ interface DialogProps {
   title: string;
   url: string;
   description: string;
-  dialogMode : string;
+  dialogMode: string;
   onChangeTitle(newTitle: string): void;
   onChangeUrl(newUrl: string): void;
   onChangeDescription(newDescription: string): void;
+  onCloseModal?(): void;
   onAdd(): void;
 }
 
@@ -25,6 +26,7 @@ const Dialog = ({
   onChangeTitle,
   onChangeUrl,
   onChangeDescription,
+  onCloseModal,
   onAdd,
 }: DialogProps) => {
   return (
@@ -50,6 +52,15 @@ const Dialog = ({
           }}
         />
         <Input
+          name="tags"
+          placeholder="(Optional) tags seperated by ','"
+          type="text"
+          value={url}
+          onChangeText={(newText: string) => {
+            onChangeUrl(newText);
+          }}
+        />
+        <Input
           name="Description"
           placeholder="Description"
           type="textarea"
@@ -60,14 +71,15 @@ const Dialog = ({
         />
       </div>
       <div id="tags">
-        <Tag text="Coding" />
-        <Tag text="Football" />
-        <Tag text="Movies" />
+        {}
       </div>
       <Button
-        name= {dialogMode === "add" ? "Add" : "Edit"}
+        name={dialogMode === "add" ? "Add" : "Edit"}
         onclick={() => {
           onAdd();
+          if (onCloseModal) {
+            onCloseModal();
+          }
         }}
       />
     </div>

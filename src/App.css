@@ -154,6 +154,7 @@ h1 {
 
 #title-input,
 #url-input,
+#tags-input,
 #Description-input {
   width: 100%;
   height: 100%;
@@ -162,6 +163,7 @@ h1 {
 }
 
 #title-container,
+#tags-container,
 #url-container {
   height: 20%;
   border-radius: 8px;
