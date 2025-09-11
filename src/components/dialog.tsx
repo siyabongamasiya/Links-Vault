@@ -55,10 +55,8 @@ const Dialog = ({
           name="tags"
           placeholder="(Optional) tags seperated by ','"
           type="text"
-          value={url}
-          onChangeText={(newText: string) => {
-            onChangeUrl(newText);
-          }}
+          value={""}
+          onChangeText={(newText: string) => {}}
         />
         <Input
           name="Description"
@@ -70,9 +68,7 @@ const Dialog = ({
           }}
         />
       </div>
-      <div id="tags">
-        {}
-      </div>
+      <div id="tags">{}</div>
       <Button
         name={dialogMode === "add" ? "Add" : "Edit"}
         onclick={() => {
