@@ -1,3 +1,407 @@
-:root{
-  
+@import url("https://fonts.googleapis.com/css2?family=Epunda+Sans:ital,wght@0,300..900;1,300..900&family=Epunda+Slab:ital,wght@0,300..900;1,300..900&display=swap");
+
+.mobile {
+  display: none !important;
+}
+
+:root {
+  /*colors*/
+  --background-text-icon-color: #ffffff;
+  --button-color: #388697;
+  --input-back: rgba(147, 130, 127, 0.3);
+  --input-back: rgba(147, 130, 127, 0.1);
+  --footer-color: #119da4;
+  --modal: rgba(0, 0, 0, 0.1);
+  --background: #000000;
+  --item-tag-color: #93827f;
+  --blur-color: rgba(0, 0, 0, 0.3);
+
+  /*typography*/
+  --title-font: "Epunda Slab", serif;
+  --body-font: "Epunda Sans", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+#topSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10vh;
+}
+
+#topSection-logo-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 95%;
+}
+
+h1 {
+  font-family: "Epunda Slab", serif;
+}
+
+#divider {
+  width: 100%;
+  height: 5%;
+  background-color: var(--background);
+}
+
+#logo {
+  height: 80%;
+}
+
+#search-container {
+  width: 50%;
+  position: relative;
+  background-color: var(--input-back);
+  border-radius: 8px;
+  margin: 0 10px 0 10px;
+}
+
+#search {
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: "Epunda Sans", sans-serif;
+  background-color: var(--input-back);
+}
+
+#search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--background);
+  font-size: 18px;
+  font-family: "Epunda Sans", sans-serif;
+}
+
+#midSection {
+  display: flex;
+  height: 80%;
+  padding: 10px;
+  font-family: "Epunda Sans", sans-serif;
+}
+
+#leftMidSection {
+  width: 40%;
+  height: 100%;
+  padding: 0 7%;
+  box-shadow: 5px 4px 4px 0px var(--blur-color);
+}
+#rightMidSection {
+  width: 60%;
+  height: 100%;
+  padding-left: 20px;
+  box-shadow: 5px 4px 4px 0px var(--blur-color);
+  overflow: scroll;
+}
+
+#link-form {
+  display: flex;
+  width: 100%;
+  height: 60%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#tags {
+  display: flex;
+  width: 100%;
+  height: 15%;
+  gap: 8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  background-color: var(--input-back);
+  font-size: 1.5rem;
+  padding: 1%;
+}
+
+.input-container {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+#dialog-header {
+  height: 10%;
+}
+
+#Add-button,
+#Edit-button,
+#Cancel-button {
+  height: 5%;
+  width: 75%;
+  color: var(--background-text-icon-color);
+  border: var(--button-color);
+  background-color: var(--button-color);
+  box-shadow: 5px 4px 4px 0px var(--blur-color);
+  border-radius: 8px;
+  margin-top: 1%;
+  cursor: pointer;
+}
+
+#title-input,
+#url-input,
+#tags-input,
+#Description-input {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--input-back);
+}
+
+#title-container,
+#tags-container,
+#url-container {
+  height: 20%;
+  border-radius: 8px;
+}
+#Description-container {
+  height: 55%;
+  border-radius: 8px;
+}
+
+.tag {
+  background-color: var(--item-tag-color);
+  padding: 2%;
+  border-radius: 8px;
+  color: var(--background-text-icon-color);
+}
+
+input::placeholder {
+  padding: 1%;
+}
+
+textarea::placeholder {
+  padding: 1%;
+}
+
+#list-item {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  box-shadow: 5px 4px 4px 0px var(--blur-color);
+  justify-content: space-between;
+  background-color: var(--item-tag-color);
+  color: var(--background-text-icon-color);
+  padding: 5px;
+  border-radius: 8px;
+  font-family: "Epunda Sans", sans-serif;
+  transition: transform 0.2s ease-in-out;
+}
+
+#list-item:hover {
+  transform: scale(1.02);
+}
+
+#item-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#item-url {
+  width: 20vw;
+  font-size: 1rem;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#item-tags {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 5%;
+}
+
+#item-description {
+  width: 20vw;
+  font-size: 1rem;
+  font-weight: 100;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+#link-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 10px;
+}
+
+#item-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.item-image {
+  width: 1vw;
+}
+
+#item-button {
+  background-color: var(--button-color);
+  width: 2vw;
+  height: 0.5vw;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+#footer {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--footer-color);
+  color: var(--background-text-icon-color);
+  font-family: "Epunda Slab", serif;
+  z-index: 9999;
+}
+
+#floating-button {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--background-text-icon-color);
+  background-color: var(--button-color);
+  border-radius: 50%;
+  position: fixed;
+  bottom: 22vw;
+  right: 20px;
+  cursor: pointer;
+  border: 1px solid var(--button-color);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+#modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  #root {
+    position: relative;
+  }
+  .desktop {
+    display: none;
+  }
+
+  #midSection {
+    flex-direction: column;
+    padding: 0px;
+  }
+
+  #topSection {
+    padding: 1vw;
+  }
+
+  #rightMidSection {
+    width: 100%;
+    height: 100%;
+    padding-left: 0px;
+    box-shadow: 0px 0px 0px 0px var(--blur-color);
+  }
+
+  #list-item {
+    margin: 10px 5px;
+  }
+
+  #item-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .item-image {
+    width: 3vw;
+  }
+
+  #search-container {
+    margin: 0 0px 0 10px;
+  }
+
+  #footer {
+    position: fixed;
+    bottom: 1px;
+    width: 100%;
+    height: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--footer-color);
+    color: var(--background-text-icon-color);
+    font-family: "Epunda Slab", serif;
+  }
+
+  #tags {
+    gap: 2rem;
+  }
+
+  .mobile {
+    display: block !important;
+  }
+}
+
+@media screen and (min-width: 431px) and (max-width: 1024px) {
+  .desktop {
+    display: none;
+  }
+
+  #root {
+    position: relative;
+  }
+
+  .mobile {
+    display: block;
+  }
+  .item-image {
+    width: 1.8vw;
+  }
+
+  .mobile {
+    display: block;
+  }
 }
