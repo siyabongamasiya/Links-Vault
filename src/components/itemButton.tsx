@@ -9,25 +9,11 @@ interface ItemButton {
 
 const ItemButton = ({ type, onEdit, onDelete }: ItemButton) => {
   return (
-    <div id="item-button">
+    <div id="item-button" onClick={type === "update" ? onEdit : onDelete}>
       {type === "update" ? (
-        <img
-          className="item-image"
-          src={edit}
-          alt="edit"
-          onClick={() => {
-            onEdit!();
-          }}
-        />
+        <img className="item-image" src={edit} alt="edit" />
       ) : (
-        <img
-          className="item-image"
-          src={remove}
-          alt="edit"
-          onClick={() => {
-            onDelete!()
-          }}
-        />
+        <img className="item-image" src={remove} alt="edit" />
       )}
     </div>
   );

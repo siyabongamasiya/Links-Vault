@@ -14,8 +14,10 @@ function App() {
   const [searchedValue, setSearchedvalue] = useState("");
 
   const onUpdateLinks = (filter: string) => {
-    const links: Link[] = dao.getLinks()!;
-    setLinks(links.filter((link) => stringMatcher(link.id, filter))); 
+    if (dao.getLinks()) {
+      const links: Link[] = dao.getLinks()!;
+      setLinks(links.filter((link) => stringMatcher(link.id, filter)));
+    }
   };
   const onUpdateLinksState = () => {
     const links: Link[] = dao.getLinks()!;
@@ -23,8 +25,10 @@ function App() {
   };
 
   useEffect(() => {
-    const links: Link[] = dao.getLinks()!;
-    setLinks(links.filter((link) => stringMatcher(link.id, searchedValue)));
+    if (dao.getLinks()) {
+      const links: Link[] = dao.getLinks()!;
+      setLinks(links.filter((link) => stringMatcher(link.id, searchedValue)));
+    }
   }, []);
 
   return (

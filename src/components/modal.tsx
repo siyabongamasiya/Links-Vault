@@ -3,10 +3,12 @@ import Dialog from "./dialog";
 interface ModalProps {
   title: string;
   url: string;
+  tags:string;
   description: string;
   dialogMode: string;
   onChangeTitle(newTitle: string): void;
   onChangeUrl(newUrl: string): void;
+  onChangeTags(newTags: string): void;
   onChangeDescription(newDescription: string): void;
   onAdd(): void;
   isOpen: boolean;
@@ -17,9 +19,11 @@ const Modal = ({
   title,
   url,
   dialogMode,
+  tags,
   description,
   onChangeTitle,
   onChangeUrl,
+  onChangeTags,
   onChangeDescription,
   onAdd,
   isOpen,
@@ -68,6 +72,8 @@ const Modal = ({
           onChangeUrl={onChangeUrl}
           onChangeDescription={onChangeDescription}
           onAdd={onAdd}
+          tags={tags}
+          onChangeTags={onChangeTags}
           onCloseModal={() => {
             onClose();
           }}

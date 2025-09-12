@@ -6,11 +6,17 @@ const dao = new DataAccessObject();
 
 interface RightMidSectionProps {
   links: Link[];
-  onEdit(id: string, title: string, url: string, description: string): void;
-  onUpdate() : void
+  onEdit(
+    id: string,
+    title: string,
+    url: string,
+    tags: string,
+    description: string
+  ): void;
+  onUpdate(): void;
 }
 
-const RightMidSection = ({ links, onEdit,onUpdate}: RightMidSectionProps) => {
+const RightMidSection = ({ links, onEdit, onUpdate }: RightMidSectionProps) => {
   return (
     <div id="rightMidSection">
       {links.length === 0 ? (
@@ -32,12 +38,13 @@ const RightMidSection = ({ links, onEdit,onUpdate}: RightMidSectionProps) => {
             key={item.id}
             title={item.title}
             url={item.url}
+            tags={item.tags.toString()}
             description={item.description}
             onDelete={(url) => {
               const isDeleted = dao.deletelink(item.id);
               if (isDeleted) {
                 console.log(`deleleted - ${url}`);
-                onUpdate()
+                onUpdate();
               }
             }}
             onEdit={onEdit}

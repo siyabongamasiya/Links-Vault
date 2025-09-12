@@ -1,19 +1,21 @@
-import { useState } from "react";
 import Input from "./input";
-import Tag from "./Tag";
 import Button from "./button";
-import DataAccessObject from "../Utils/dao";
+import useViewportWidth from "../customHooks/customHooks";
 
 interface DialogProps {
   style: React.CSSProperties;
   title: string;
   url: string;
   description: string;
+  tags: string;
   dialogMode: string;
+  width?: number;
   onChangeTitle(newTitle: string): void;
   onChangeUrl(newUrl: string): void;
   onChangeDescription(newDescription: string): void;
+  onChangeTags(newTags: string): void;
   onCloseModal?(): void;
+  onCancel?(): void;
   onAdd(): void;
 }
 
@@ -21,14 +23,18 @@ const Dialog = ({
   style,
   title,
   url,
+  tags,
   description,
   dialogMode,
   onChangeTitle,
   onChangeUrl,
   onChangeDescription,
+  onChangeTags,
   onCloseModal,
+  onCancel,
   onAdd,
 }: DialogProps) => {
+  const width = useViewportWidth();
   return (
     <div id="dialog" style={style}>
       <h1 id="dialog-header">Create link</h1>
@@ -55,8 +61,10 @@ const Dialog = ({
           name="tags"
           placeholder="(Optional) tags seperated by ','"
           type="text"
-          value={""}
-          onChangeText={(newText: string) => {}}
+          value={tags}
+          onChangeText={(newTags: string) => {
+            onChangeTags(newTags);
+          }}
         />
         <Input
           name="Description"
@@ -78,6 +86,16 @@ const Dialog = ({
           }
         }}
       />
+      {dialogMode === "edit" && width > 1024   ? (
+        <Button
+          name="Cancel"
+          onclick={() => {
+            onCancel!();
+          }}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
