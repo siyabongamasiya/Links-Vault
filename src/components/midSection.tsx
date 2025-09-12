@@ -123,8 +123,8 @@ const MidSection = ({ links, onUpdateLinks }: MidSectionProps) => {
         onChangeDescription={onChangeDescription}
         onChangeTags={onChangeTags}
         onCancel={() => {
-          setDialogueMode("add")
-          clearForm()
+          setDialogueMode("add");
+          clearForm();
         }}
         onAdd={onAdd}
         dialogMode={dialogMode}

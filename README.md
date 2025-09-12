@@ -1,69 +1,85 @@
-# React + TypeScript + Vite
+# Links Vault
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based web application that stores, manages, and filters links. Users can search links in and view results dynamically.
 
-Currently, two official plugins are available:
+## Features
+- Search functionality with live filtering
+- Organized layout with **TopSection**, **MidSection**, and **Footer**
+- Reusable component-based architecture
+- Data Access Object (DAO) for centralized data handling
+- String matcher utility for flexible search queries
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Structure
+src/
+ ├── components/
+ │    ├── button.tsx
+ │    ├── dialogue.tsx
+ │    ├── floatingButton.tsx
+ │    ├── footer.tsx
+ │    ├── input.tsx
+ │    ├── itemButton.tsx
+ │    ├── leftMidSection.tsx
+ │    ├── listItem.tsx
+ │    ├── midSection.tsx
+ │    ├── modal.tsx
+ │    ├── rightMidSection.tsx
+ │    ├── search.tsx
+ │    ├── tag.tsx
+ │    └── topSection.tsx
+ ├── models/
+ │    └── link.ts
+ ├── Utils/
+ │    ├── dao.ts
+ │    └── stringMatcher.ts
+ ├── App.tsx
+ ├── App.css
+ └── main.tsx
 
-## Expanding the ESLint configuration
+## Tech Stack
+- **React 19** – Frontend framework
+- **TypeScript** – Type-safe development
+- **Vite** – Fast build tool
+- **React Icons** – Icon library
+- **ESLint + TypeScript ESLint** – Code linting
+- **CSS** – Styling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Dependencies
+"react": "^19.1.1",  
+"react-dom": "^19.1.1",  
+"react-icons": "^5.5.0"
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Dev Dependencies
+"@eslint/js": "^9.33.0",  
+"@types/react": "^19.1.10",  
+"@types/react-dom": "^19.1.7",  
+"@vitejs/plugin-react": "^5.0.0",  
+"eslint": "^9.33.0",  
+"eslint-plugin-react-hooks": "^5.2.0",  
+"eslint-plugin-react-refresh": "^0.4.20",  
+"globals": "^16.3.0",  
+"typescript": "~5.8.3",  
+"typescript-eslint": "^8.39.1",  
+"vite": "^7.1.2"
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 1. Clone the Repository
+git clone <your-repo-url>  
+cd links-vault
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install Dependencies
+npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 3. Run in Development
+npm run dev
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 4. Build for Production
+npm run build
+
+### 5. Preview Build
+npm run preview
+
+## Notes
+- The `DataAccessObject (dao)` manages links centrally.  
+- `stringMatcher` helps match link IDs against the search input.  
+- Initial links load on mount using `useEffect`.
