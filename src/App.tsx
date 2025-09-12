@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import Link from "./models/link";
 import DataAccessObject from "./Utils/dao";
 import stringMatcher from "./Utils/stringMatcher";
+import { Toaster } from "sonner";
 
 const dao = new DataAccessObject();
 
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <>
+      <Toaster richColors position="bottom-center" />
       <TopSection
         onSearch={(searchValue) => {
           onUpdateLinks(searchValue);

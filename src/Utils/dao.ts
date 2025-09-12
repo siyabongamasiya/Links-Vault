@@ -1,4 +1,5 @@
 import Link from "../models/link";
+import Toast from "./Toast";
 
 export default class DataAccessObject {
   storageKey: string = "links";
@@ -35,6 +36,7 @@ export default class DataAccessObject {
       newLinkList!.push(newLink);
       //save list
       localStorage.setItem(this.storageKey, JSON.stringify(newLinkList));
+      Toast(`Added ${title} successfuly!!`)
       return true;
     }
   }
@@ -52,6 +54,7 @@ export default class DataAccessObject {
         return link.id != id;
       });
       localStorage.setItem(this.storageKey, JSON.stringify(newLinksArray));
+      Toast(`Deleted successfuly!!`)
       return true;
     } catch (error) {
       return false;
@@ -84,6 +87,7 @@ export default class DataAccessObject {
       }
     });
     localStorage.setItem(this.storageKey, JSON.stringify(updatedLinks));
+    Toast(`Updated ${title} successfuly!!`)
     return updated;
   }
 }
