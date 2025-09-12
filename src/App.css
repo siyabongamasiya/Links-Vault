@@ -155,6 +155,7 @@ h1 {
   color: var(--background-text-icon-color);
   border: var(--button-color);
   background-color: var(--button-color);
+  box-shadow: 5px 4px 4px 0px var(--blur-color);
   border-radius: 8px;
   margin-top: 1%;
   cursor: pointer;
@@ -200,12 +201,18 @@ textarea::placeholder {
   display: flex;
   flex-direction: row;
   margin: 10px;
+  box-shadow: 5px 4px 4px 0px var(--blur-color);
   justify-content: space-between;
   background-color: var(--item-tag-color);
   color: var(--background-text-icon-color);
   padding: 5px;
   border-radius: 8px;
   font-family: "Epunda Sans", sans-serif;
+  transition: transform 0.2s ease-in-out;
+}
+
+#list-item:hover {
+  transform: scale(1.02);
 }
 
 #item-title {
@@ -214,8 +221,12 @@ textarea::placeholder {
 }
 
 #item-url {
+  width: 20vw;
   font-size: 1rem;
   font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 #item-tags {
   font-size: 1rem;
@@ -231,6 +242,7 @@ textarea::placeholder {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 
 #link-details {
   display: flex;

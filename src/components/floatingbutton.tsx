@@ -1,4 +1,3 @@
-import { FaPlus } from "react-icons/fa";
 
 interface FloatingButtonProps {
   onToggleDialogue(): void;
