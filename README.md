@@ -64,7 +64,7 @@ src/
 ## Getting Started
 
 ### 1. Clone the Repository
-git clone https://github.com/siyabongamasiya/Links-Vault.git
+git clone https://github.com/siyabongamasiya/Links-Vault.git <br>
 cd links-vault
 
 ### 2. Install Dependencies
