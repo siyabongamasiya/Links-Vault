@@ -34,6 +34,7 @@ const Modal = ({
   return (
     <>
       <div
+      className="mobile"
         style={{
           position: "fixed",
           top: 0,

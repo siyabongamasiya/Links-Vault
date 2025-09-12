@@ -243,7 +243,6 @@ textarea::placeholder {
   text-overflow: ellipsis;
 }
 
-
 #link-details {
   display: flex;
   flex-direction: column;
@@ -317,7 +316,7 @@ textarea::placeholder {
 }
 
 .mobile {
-  display: none;
+  display: none !important;
 }
 
 @media screen and (max-width: 1024px) {
@@ -382,6 +381,12 @@ textarea::placeholder {
 
   .mobile {
     display: block !important;
+  }
+}
+
+@media  screen and (min-width:1024px) {
+  .mobile{
+    display: none !important;
   }
 }
 
