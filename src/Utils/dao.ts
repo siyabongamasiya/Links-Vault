@@ -1,6 +1,8 @@
 import { toast } from "sonner";
 import Link from "../models/link";
 import allValuesAreValid, { isValidUrl } from "./stringValidator";
+import Toast from "./Toast";
+
 export default class DataAccessObject {
   storageKey: string = "links";
 
