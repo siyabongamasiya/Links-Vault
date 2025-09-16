@@ -1,4 +1,6 @@
+import { toast } from "sonner";
 import Link from "../models/link";
+import allValuesAreValid, { isValidUrl } from "./stringValidator";
 import Toast from "./Toast";
 
 export default class DataAccessObject {
@@ -9,12 +11,22 @@ export default class DataAccessObject {
     title: string,
     url: string,
     description: string,
-    tags: string[],
+    tags: string[]
   ): boolean {
     //try to update first and if kuryt phuma mfwethu
-
+    if (!allValuesAreValid(title, description, url)) {
+      Toast(
+        `All these values(Title,Url and Description) must be have values!!`
+      );
+      return false;
+    }
     if (this.update(id, title, url, description, tags)) {
       return true;
+    }
+
+    if (!isValidUrl(url)) {
+      toast.error("Please enter the full valid  URL!!", { duration: 5000 });
+      return false;
     }
     //get list
     const linkList = this.getLinks();
@@ -26,6 +38,7 @@ export default class DataAccessObject {
       linkList.push(newLink);
       //save list
       localStorage.setItem(this.storageKey, JSON.stringify(linkList));
+      Toast(`Added ${title} successfully!!`);
       return true;
     } else {
       //create new array and insert to it
@@ -36,7 +49,7 @@ export default class DataAccessObject {
       newLinkList!.push(newLink);
       //save list
       localStorage.setItem(this.storageKey, JSON.stringify(newLinkList));
-      Toast(`Added ${title} successfuly!!`)
+      Toast(`Added ${title} successfully!!`);
       return true;
     }
   }
@@ -54,7 +67,7 @@ export default class DataAccessObject {
         return link.id != id;
       });
       localStorage.setItem(this.storageKey, JSON.stringify(newLinksArray));
-      Toast(`Deleted successfuly!!`)
+      Toast(`Deleted successfuly!!`);
       return true;
     } catch (error) {
       return false;
@@ -86,8 +99,12 @@ export default class DataAccessObject {
         return link;
       }
     });
-    localStorage.setItem(this.storageKey, JSON.stringify(updatedLinks));
-    Toast(`Updated ${title} successfuly!!`)
-    return updated;
+    if (updated) {
+      localStorage.setItem(this.storageKey, JSON.stringify(updatedLinks));
+      Toast(`Updated ${title} successfuly!!`);
+      return updated;
+    } else {
+      return false;
+    }
   }
 }

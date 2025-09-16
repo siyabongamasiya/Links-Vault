@@ -38,7 +38,7 @@ const Dialog = ({
   return (
     <div id="dialog" style={style}>
       <h1 id="dialog-header">Create link</h1>
-      <div id="link-form">
+      <form id="link-form">
         <Input
           name="title"
           placeholder="Title"
@@ -75,7 +75,7 @@ const Dialog = ({
             onChangeDescription(newText);
           }}
         />
-      </div>
+      </form>
       <div id="tags">{}</div>
       <Button
         name={dialogMode === "add" ? "Add" : "Edit"}

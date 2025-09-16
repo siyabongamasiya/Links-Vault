@@ -9,6 +9,7 @@ import FloatingButton from "./floatingbutton";
 import csvToArray from "../Utils/tagger";
 import useViewportWidth from "../customHooks/customHooks";
 import Toast from "../Utils/Toast";
+import allValuesAreValid from "../Utils/stringValidator";
 const dao = new DataAccessObject();
 
 interface MidSectionProps {

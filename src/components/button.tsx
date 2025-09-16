@@ -8,14 +8,14 @@ interface ButtonProps {
 const Button = ({ name, onclick }: ButtonProps) => {
   return (
     <>
-      <button
+      <input
+        type="submit"
         id={`${name}-button`}
         onClick={() => {
           onclick();
         }}
-      >
-        {name}
-      </button>
+        value={name}
+      />
     </>
   );
 };

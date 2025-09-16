@@ -21,18 +21,20 @@ const Input = ({
         <input
           id={`${name}-input`}
           className="input"
+          required={name.includes("tags") ? false : true}
           type={type}
           name={name}
           placeholder={placeholder}
           value={value}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            onChangeText(e.target.value);
-          }}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChangeText(e.target.value)
+          }
         />
       ) : (
         <textarea
           id={`${name}-input`}
           className="input"
+          required
           placeholder={placeholder}
           value={value}
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
